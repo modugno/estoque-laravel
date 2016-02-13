@@ -14,21 +14,6 @@
 Route::get('/', function () {
     return 'Primeira Lógica com Laravel';
 });
-
-// Rota para Produtos
-Route::group(['middleware' => 'web'], function() {
-	Route::get('/produtos', 'ProdutoController@lista');
-	Route::get('/produtos/json', 'ProdutoController@listaJson');
-	Route::get('produtos/mostra/{id}', 'ProdutoController@mostra')->where('id', '[0-9]+');
-	Route::get('produtos/novo', 'ProdutoController@novo');
-	Route::post('produtos/adiciona', 'ProdutoController@adiciona');
-	Route::get('produtos/editar{id}', 'ProdutoController@editar');
-	Route::post('produtos/atualizar', 'ProdutoController@atualizar');
-	Route::get('produtos/remove/{id}', 'ProdutoController@remove');
-});
-
-
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -41,5 +26,20 @@ Route::group(['middleware' => 'web'], function() {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    Route::get('/produtos', 'ProdutoController@lista');
+	Route::get('produtos/json', 'ProdutoController@listaJson');
+	Route::get('produtos/mostra/{id}', 'ProdutoController@mostra')->where('id', '[0-9]+');
+	Route::get('produtos/novo', 'ProdutoController@novo');
+	Route::post('produtos/adiciona', 'ProdutoController@adiciona');
+	Route::get('produtos/editar{id}', 'ProdutoController@editar');
+	Route::post('produtos/atualizar', 'ProdutoController@atualizar');
+	Route::get('produtos/remove/{id}', 'ProdutoController@remove');
+	Route::get('home', 'HomeController@index');
+	Route::get('login', 'LoginController@login');
+	Route::post('auth', 'LoginController@auth');
 });
+
+Route::controllers([
+	'auth'     => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController'
+]);
