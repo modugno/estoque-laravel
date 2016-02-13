@@ -4,6 +4,7 @@ namespace estoque\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use estoque\Produto;
 use Request;
+use estoque\Http\Requests\ProdutosRequest;
 
 class ProdutoController extends Controller {
 
@@ -30,8 +31,9 @@ class ProdutoController extends Controller {
 		return view('produto.formulario');
 	}
 
-	public function adiciona() {
-		Produto::create(Request::all());
+	public function adiciona(ProdutosRequest $produto) {
+		Produto::create($produto->all());
+
 		return redirect()
 		     ->action('ProdutoController@lista')
 		     ->withInput(Request::only('nome'));
