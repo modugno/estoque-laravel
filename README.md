@@ -1,4 +1,4 @@
-# PHP Laravel
+# PHP e Laravel - Controle de Estoque
 
 Projeto de Controle de Estoque, do livro "PHP e Laravel Crie aplicações web como um verdadeiro artesão", da Casa do Código
 
@@ -6,12 +6,12 @@ O projeto é bem simples, porem com muitos conceitos e boas práticas de Laravel
 
 ## Aprendizado durante o livro
 
-Routes
-Migration
-CRUD Nativo com Facade/DB
-Blade
-Validações
-Eloquent ORM
-Middleware
-Autenticação
-Artisan
+* Routes
+* Migration
+* CRUD Nativo com Facade/DB
+* Blade
+* Validações
+* Eloquent ORM
+* Middleware
+* Autenticação
+* Artisan
