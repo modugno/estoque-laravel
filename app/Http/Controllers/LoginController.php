@@ -14,8 +14,8 @@ class LoginController extends Controller {
 
     public function auth() {
     	if (Auth::attempt( Request::only('email', 'password') )) {
-    		return "Usuário " . Auth::user()->name . " logado com sucesso!";
+    		return redirect()->action('ProdutoController@lista');
     	}
-    	return "Credenciais inválidas!";
+    	return redirect()->action('LoginController@login');
     }
 }

@@ -3,10 +3,15 @@ namespace estoque\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use estoque\Produto;
-use Request;
 use estoque\Http\Requests\ProdutosRequest;
-
+use Request;
+use Auth;
 class ProdutoController extends Controller {
+
+	public function __construct() {
+		$this->middleware('auth',
+			['only' => ['novo', 'remove']]);
+	}
 
 	public function lista() {
 		$produtos = Produto::all();
@@ -62,4 +67,10 @@ class ProdutoController extends Controller {
 		$produto->save();
 		return redirect()->action('ProdutoController@editar', $id);
 	}
+
+	public function sair() {
+		Auth::logout();
+		return redirect()->action('LoginController@login');
+	}
+
 }

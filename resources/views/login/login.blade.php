@@ -4,7 +4,7 @@
 <div class="row">
 	<div class="col-md-4">
 		<form action="{{action('LoginController@auth')}}" method="POST">
-			<input type="hidden" name="_token" value="{{ csrf_token() }}">
+			<input type="hidden" name="_token" value="{{{ csrf_token() }}}">
 			<div class="form-group">
 				<label>E-mail</label>
 				<input type="email" class="form-control" name="email">

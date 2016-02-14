@@ -34,11 +34,11 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('produtos/editar{id}', 'ProdutoController@editar');
 	Route::post('produtos/atualizar', 'ProdutoController@atualizar');
 	Route::get('produtos/remove/{id}', 'ProdutoController@remove');
+	Route::get('produtos/sair', 'ProdutoController@sair');
 	Route::get('home', 'HomeController@index');
-	Route::get('login', 'LoginController@login');
 	Route::post('auth', 'LoginController@auth');
+	Route::get('login', 'LoginController@login');
 });
-
 Route::controllers([
 	'auth'     => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController'
